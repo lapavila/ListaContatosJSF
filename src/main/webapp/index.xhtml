@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets - É nóis <h:outputText value="#{batata.username}"></h:outputText>
+        <h:form>
+            <fieldset>
+                <legend>Formulario</legend>
+                <h:panelGrid columns="2" border="1">
+                    <f:facet name="footer">
+                        Rodapé
+                    </f:facet>
+                    <f:facet name="header">
+                        <h:outputLabel value="Formulario de cadastro"/>
+                    </f:facet>
+                    <h:outputLabel value="Nome"/>
+                    <h:inputText/>
+                    <h:outputLabel value="Endereco"/>
+                    <h:inputText/>
+                    <h:outputLabel value="Data incio"/>
+                    <h:panelGroup>
+                        <h:inputText id="dtin"/>
+                        <h:outputLabel value="Data Fim"/>
+                        <h:inputText id="dtFim"/>
+                    </h:panelGroup>
+                    <h:outputLabel value="Periodo"/>
+                    <h:selectManyCheckbox>
+                        <f:selectItem itemLabel="Seg" itemValue="2"/>
+                        <f:selectItem itemLabel="Ter" itemValue="3"/>
+                        <f:selectItem itemLabel="Qua" itemValue="4"/>
+                        <f:selectItem itemLabel="Qua" itemValue="5"/>
+                        <f:selectItem itemLabel="Qui" itemValue="6"/>
+                        <f:selectItem itemLabel="Sex" itemValue="7"/>
+                    </h:selectManyCheckbox>
+                    <h:outputLabel value="Telefone"/>
+                    <h:inputText/>
+                    <h:commandButton value="Ok" />
+                </h:panelGrid>
+            </fieldset>
+        </h:form>
+    </h:body>
+</html>
+
