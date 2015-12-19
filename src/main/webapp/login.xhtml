@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
 
@@ -24,7 +25,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
+                   
                     <div class="login-panel panel panel-default">
+                        
+                        <h:messages showDetail="true"/>
+                        
                         <div class="panel-heading">
                             <h3 class="panel-title">Login no sistema</h3>
                         </div>
@@ -32,13 +37,13 @@
                             <h:form>
                                   <fieldset>
                                     <div class="form-group">
-                                        <h:inputText styleClass="form-control" id="username"/>
+                                        <h:inputText value="#{usuarioController.usuario.username}" styleClass="form-control" id="username" a:placeholder="Username"/>
                                     </div>
                                     <div class="form-group">
-                                        <h:inputSecret styleClass="form-control" id="password" />
+                                        <h:inputSecret value="#{usuarioController.usuario.password}" styleClass="form-control" id="password"  a:placeholder="Password "/>
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <h:commandButton styleClass="btn btn-lg btn-success btn-block" value="Login" />
+                                    <h:commandButton styleClass="btn btn-lg btn-success btn-block" value="Login" action="#{usuarioController.efetuarLogin}"/>
                                 </fieldset>
                             </h:form>
                         </div>

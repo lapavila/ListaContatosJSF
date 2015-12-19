@@ -5,6 +5,7 @@
  */
 package br.com.voffice.contatos.util;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
@@ -32,5 +33,22 @@ public class JSFHelper {
     
     public static Object getApplicationAttribute(String name) {
         return getExternalContext().getApplicationMap().get(name);
+    }
+    
+    public static void addError(String id, String summary, String detail) {
+        addMessage(FacesMessage.SEVERITY_ERROR, id, summary, detail);
+    }
+    
+    public static void addInfo(String id, String summary, String detail) {
+        addMessage(FacesMessage.SEVERITY_INFO, id, summary, detail);
+    }    
+    
+    public static void addWarn(String id, String summary, String detail) {
+        addMessage(FacesMessage.SEVERITY_WARN, id, summary, detail);
+    } 
+    
+    public static void addMessage(FacesMessage.Severity severity, String id, String summary, String detail) {
+        FacesMessage mensagem = new FacesMessage(severity, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(id, mensagem);
     }
 }
